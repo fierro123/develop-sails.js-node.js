@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Demo</title>
+        <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form>
+            usuario<input type="text" name="user" id="user"/>
+            pass<input type="password" name="pass" id="pass"/>
+            <input type="button" id="enviar" value="login"/>
+        </form>
+        <script>
+            $(function() {
+                $('#enviar').click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/login/validar',
+                        data: {
+                            user: $('#user').val(),
+                            pass: $('#pass').val()
+                        },
+                        success: function (data) {
+                            if(data.success) {
+                                window.location = '/welcome';
+                            }
+                            else {
+                                window.location = '/404';
+                            }
+                        }
+                    });
+                });
+            })
+        </script>
+    </body>
+</html>
