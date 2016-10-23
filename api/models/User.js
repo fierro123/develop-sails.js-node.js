@@ -6,8 +6,15 @@
  */
 
 module.exports = {
-
-  attributes: {
-
+  tableName: 'users',
+  attributes : {
+    email : {
+      type : 'string',
+      required : true
+    },
+    pass : {
+      type : 'string',
+      required : true
+    }
   }
 };
