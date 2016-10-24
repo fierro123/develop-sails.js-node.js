@@ -8,7 +8,7 @@
 module.exports = {
   tableName: 'users',
   attributes : {
-    email : {
+    user : {
       type : 'string',
       required : true
     },

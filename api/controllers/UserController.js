@@ -19,6 +19,8 @@ module.exports = {
 	registrar : function(req, res) {
 		if (req.method == 'POST') {
 			var data  = req.allParams()
+      var hash = bcrypt.hashSync(data.pass)
+      data.pass = hash
 			User.create(data).exec(function (err, result){
 				if (err) {
 					return res.serverError(err)
@@ -39,5 +41,29 @@ module.exports = {
 		}
 		data.pass = hash
 		return res.json(data)
-	}
+	},
+  validar : function (req, res) {
+    if (req.method == 'POST') {
+      var data = req.allParams()
+      var hash = bcrypt.hashSync(data.pass)
+      User.findOne({
+        user : data.user
+      }).exec(function(err, result){
+        if (err) {
+          return res.serverError(err)
+        }
+        if (!result) {
+          return res.send({message : 'El usuario no Existe'})
+        }else {
+          if (bcrypt.compareSync(data.pass, result.pass)) {
+            return res.redirect('/')
+          }else {
+            return res.send({message : 'Usuario y/o Contraseña Incorrecta'})
+          }
+        }
+      })
+    }else {
+      return res.redirect('/')
+    }
+  }
 };

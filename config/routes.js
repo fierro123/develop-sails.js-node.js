@@ -39,6 +39,7 @@ module.exports.routes = {
     view : 'signin'
   },
   '/usuarios/all' : 'UserController.getall',
+  
   '/signup' : {
     view : 'signup'
   },
