@@ -5,5 +5,5 @@ Rama Dante
 * Clonar el repositorio ```git clone [url_proyecto]```
 * Ingresar al repositorio por consola ```cd develop-sails.js-node.js```
 * Instalar las dependencias  con ```npm install```
-* Instalar las nodemon  con ```npm install -g nodemon```
+* Instalar nodemon  con ```npm install -g nodemon```
 * Ejecutarlo ```nodemon app```
