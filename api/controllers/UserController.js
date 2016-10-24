@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing Users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+ var bcrypt = require('bcrypt-nodejs')
 
 module.exports = {
 	getall : function(req, res) {
@@ -28,8 +29,15 @@ module.exports = {
 			return res.redirect('/')
 		}
 	},
-	parametros : (req, res) => {
-		var data = req.allParams();
+	parametros : function (req, res) {
+		var data = req.allParams()
+		var hash = bcrypt.hashSync(data.pass);
+		if (bcrypt.compareSync("Ingeniero", hash)) {
+			data.estado = true
+		}else {
+			data.estado = false
+		}
+		data.pass = hash
 		return res.json(data)
 	}
 };
