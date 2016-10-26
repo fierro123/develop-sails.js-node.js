@@ -15,7 +15,7 @@ module.exports = {
 			return res.send({ saludo : 'Hola Mundo', datos : user + ',' + pass })
 		}else {
 			return res.redirect('/login');
-		}, //agregue coma, por si hay error quitar ese cambio.
+		} //agregue coma, por si hay error quitar ese cambio.
 
     return res.json({
     });
