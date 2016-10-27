@@ -33,15 +33,17 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'user/login'
   },
   '/404': {
     view: '404'
   },
-  '/welcome': {
-    view: 'welcome'
+  '/user/new': {
+    view: 'user/new'
   },
-  'get /login': { view: 'login'}
+  '/user/welcome': {
+    view: 'user/welcome'
+  }
 
   /***************************************************************************
   *                                                                          *

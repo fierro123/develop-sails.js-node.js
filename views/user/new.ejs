@@ -8,6 +8,7 @@
     </head>
     <body>
         <form>
+            <h2>Registrar</h2>
             usuario<input type="text" name="user" id="user"/>
             pass<input type="password" name="pass" id="pass"/>
             <input type="button" id="enviar" value="login"/>
@@ -17,14 +18,14 @@
                 $('#enviar').click(function () {
                     $.ajax({
                         type: 'POST',
-                        url: '/login/validar',
+                        url: '/user/create',
                         data: {
                             user: $('#user').val(),
                             pass: $('#pass').val()
                         },
                         success: function (data) {
                             if(data.success) {
-                                window.location = '/welcome';
+                                window.location = '/user/login';
                             }
                             else {
                                 window.location = '/404';

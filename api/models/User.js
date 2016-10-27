@@ -6,14 +6,17 @@
  */
 
 module.exports = {
-
+  tableName: 'users',
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     // user: {
     //   type: 'string'
     // },
     // pass:{
     //   type: 'string'
-    // }
+    // },
+    // createdAt:{}
   }
 };
 
