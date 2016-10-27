@@ -8,13 +8,13 @@
 
 module.exports = {
 	getall : function(req, res) {
-		User.find()
-				.exec(function(err, users){
-					if(err) {
-						return res.serverError(err)
-					}
-					return res.json(users)
-				})
+      User.find()
+          .exec(function(err, usuarios){
+        if(err) {
+          return res.serverError(err)
+        }
+        return res.view('usuarios/index', { usuarios : usuarios})
+      })
 	},
 	registrar : function(req, res) {
 		if (req.method == 'POST') {

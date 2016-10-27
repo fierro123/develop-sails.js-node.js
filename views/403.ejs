@@ -27,10 +27,6 @@
   You can trigger this response from one of your controllers or policies with:
   `return res.forbidden( msg );`
   (where `msg` is an optional error message to include in the response)
-
-
-
-
 -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
   <style>
@@ -48,8 +44,8 @@
         Forbidden
       </h1>
       <h2>
-        <% if (typeof data !== 'undefined') { %>
-        <%= data %>
+        <% if (typeof data.msg !== 'undefined') { %>
+        <%= data.msg %>
         <% } else { %>
         You don't have permission to see the page you're trying to reach.
         <% } %>
@@ -65,4 +61,3 @@
       </a>
     </div>
   </div>
-

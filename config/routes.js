@@ -38,11 +38,12 @@ module.exports.routes = {
   '/signin' : {
     view : 'signin'
   },
-  '/usuarios/all' : 'UserController.getall',
-  
   '/signup' : {
     view : 'signup'
   },
+  '/usuarios' : 'User.getall'
+
+
 
 
   /***************************************************************************
